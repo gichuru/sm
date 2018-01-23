@@ -6,6 +6,7 @@ class InitialSchema < ActiveRecord::Migration[5.0]
       t.string  :location
       t.string  :email
       t.integer :phone
+      t.string :website
       t.string  :logo
       t.timestamps
     end
@@ -36,7 +37,7 @@ class InitialSchema < ActiveRecord::Migration[5.0]
     end
 
     add_reference :cities, :country, index: true
-    add_reference :offices, :city, index: true
+    #add_reference :offices, :city, index: true
     add_reference :spaces, :office, index: true
     add_reference :reviews, :space, index: true
   end

@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sm</title>
-    <%= csrf_meta_tags %>
+    <title>Seat : Meet </title>
+<!--Delete this once you sort out css -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+<!-- <link href="assets/fonts/profession/style.css" rel="stylesheet" type="text/css">
+<link href="assets/libraries/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="assets/libraries/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" type="text/css">
+<link href="assets/libraries/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+<link href="assets/libraries/bootstrap-wysiwyg/bootstrap-wysiwyg.min.css" rel="stylesheet" type="text/css">
+<link href="assets/css/profession-black-green.css" rel="stylesheet" type="text/css" id="style-primary">
+<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.png"> -->
 
+<!--Delete this once you sort out css -->
+
+    <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="hero-content-dark footer-dark">
+  <div class="page-wrapper">
     <%= render 'layouts/navbar' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
+    <%= render 'layouts/footer' %>
+  </div>
   </body>
 </html>

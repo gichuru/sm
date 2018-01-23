@@ -1,0 +1,107 @@
+
+    <div class="main-wrapper">
+        <div class="main">
+            <div class="document-title">
+                <div class="container">
+                    <h1>Companies</h1>
+                </div><!-- /.container -->
+            </div><!-- /.document-title -->
+
+            <div class="document-breadcrumb">
+                <div class="container">
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Pages</a></li>
+                        <li><a href="#">Custom page</a></li>
+                    </ul>
+                </div><!-- /.container -->
+            </div><!-- /.document-title -->
+
+            <div class="container">
+    <div class="row">
+    <div class="col-sm-9">
+        <h2 class="page-header">Displaying <strong>21</strong> companies matching your query</h2>
+
+        <div class="companies-list">
+          <% @offices.each do |office| %>
+
+                <div class="companies-list-item">
+                    <div class="companies-list-item-image">
+                        <a href="#">
+                          <img src="assets/img/tmp/dropbox.png" alt="">
+                        </a>
+                    </div><!-- /.companies-list-item-image -->
+
+                    <div class="companies-list-item-heading">
+                        <h2><%= link_to office.name, office %></h2>
+                        <h3><%= office.location %></h3>
+                    </div><!-- /.companies-list-item-heading -->
+
+                    <div class="companies-list-item-count">
+                        <a href="#">4 open positions</a>
+                    </div><!-- /.positions-list-item-count -->
+
+                    <div class="companies-list-item-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <span class="companies-list-item-rating-count">/ 53</span>
+                    </div><!-- /.companies-list-item-rating -->
+                </div><!-- /.companies-list-item -->
+                <% end %>
+        </div><!-- /.companies-list -->
+
+         <div class="center">
+	<ul class="pagination">
+		<li>
+			<a href="#">
+				<i class="fa fa-chevron-left"></i>
+			</a>
+		</li>
+
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li class="active"><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li>
+			<a href="#">
+				<i class="fa fa-chevron-right"></i>
+			</a>
+		</li>
+	</ul>
+  </div><!-- /.center -->
+    </div><!-- /.col-* -->
+
+    <div class="sidebar col-sm-3">
+        <h2>Open Positions</h2>
+
+        <div class="positions-list-small">
+            <div class="positions-list-small-item">
+                <h2><a href="#">UX/UI Senior Designer</a></h2>
+                <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> Dropbox Inc. <br>San Francisco, California</h3>
+            </div>
+
+            <div class="positions-list-small-item">
+                <h2><a href="#">Junior Java Tester</a></h2>
+                <h3><span><img src="assets/img/tmp/facebook.png" alt=""></span> Google Inc. <br>San Francisco, California</h3>
+            </div><!-- /.position-list-item -->
+
+            <div class="positions-list-small-item">
+                <h2><a href="#">IT Platform Consultant</a></h2>
+                <h3><span><img src="assets/img/tmp/twitter.png" alt=""></span> Google Inc. <br>San Francisco, California</h3>
+            </div><!-- /.position-list-item -->
+
+            <div class="positions-list-small-item">
+                <h2><a href="#">Senior Frontend Developer</a></h2>
+                <h3><span><img src="assets/img/tmp/instagram.png" alt=""></span> Instragram Inc. <br>San Francisco, California</h3>
+            </div><!-- /.position-list-item -->
+        </div><!-- /.positions-list-small -->
+    </div><!-- /.col-* -->
+</div><!-- /.row -->
+
+</div><!-- /.container -->
+        </div><!-- /.main -->
+    </div><!-- /.main-wrapper -->

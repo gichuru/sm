@@ -1,0 +1,154 @@
+    <div class="main-wrapper">
+        <div class="main">
+            <div class="document-title">
+                <div class="container">
+                  <h1><%= @office.name %>:<span> Incubator, accellerator, co-working</span>
+                    <button class="btn btn-secondary pull-right" type="submit">Add Tables/Offices/Event Spaces</button>
+
+                  </h1>
+                </div><!-- /.container -->
+            </div><!-- /.document-title -->
+
+            <div class="document-breadcrumb">
+                <div class="container">
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Pages</a></li>
+                        <li><a href="#">Custom page</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--end of breadcrumb  -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="company-card">
+    <div class="company-card-image">
+        <span>Top Employeer</span>
+        <a href="company-detail.html">
+            <img src="assets/img/tmp/dropbox.png" alt=""></a>
+        </a>
+    </div><!-- /.company-card-image -->
+
+    <div class="company-card-data">
+        <dl>
+            <dt>Website</dt>
+            <dd><%= @office.website %></dd>
+
+            <dt>E-mail</dt>
+            <dd><%= @office.email %></dd>
+
+            <dt>Phone</dt>
+            <dd><%= @office.phone %></dd>
+
+            <dt>Address</dt>
+            <dd>
+            <%= @office.location %>
+            </dd>
+        </dl>
+    </div><!-- /.company-card-data -->
+</div><!-- /.company-card -->
+
+
+            <div class="widget">
+                <ul class="social-links">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+                </ul>
+            </div><!-- /.widget -->
+
+            <div class="widget">
+                <h2>Contact Company</h2>
+
+                <form method="get" action="?">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Subject">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your E-mail">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                    </div><!-- /.form-group -->
+
+                    <button class="btn btn-secondary pull-right" type="submit">Post Message</button>
+                </form>
+            </div><!-- /.widget -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-8">
+            <div class="company-header text-right">
+                <a href="#" class="btn btn-secondary">Favorite</a>
+                <a href="#" class="btn btn-default">Receive updates</a>
+                <a href="#" class="btn btn-default">Follow</a>
+            </div><!-- /.company-header -->
+
+            <div class="company-stats">
+                <div class="company-stat">
+                    <span>Positions</span>
+                    <strong>12</strong>
+                </div><!-- /.company-stat -->
+
+                <div class="company-stat">
+                    <span>Employees</span>
+                    <strong>43</strong>
+                </div><!-- /.company-stat -->
+
+                <div class="company-stat">
+                    <span>Followers</span>
+                    <strong>324</strong>
+                </div><!-- /.company-stat -->
+            </div><!-- /.company-stat -->
+
+            <h3 class="page-header">Company Profile</h3>
+
+            <p>
+              <%= @office.description %>
+            </p>
+
+            <h3 class="page-header">Open Positions</h3>
+
+            <div class="positions-list">
+                <div class="positions-list-item">
+                    <h2><a href="#">Senior Data Analytist</a></h2>
+                    <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> San Francisco, Dropbox <br></h3>
+
+                    <div class="position-list-item-date">11/11/2015</div><!-- /.position-list-item-date -->
+                    <div class="position-list-item-action"><a href="#">Save Position</a></div><!-- /.position-list-item-action -->
+                </div><!-- /.positions-list-item -->
+
+                <div class="positions-list-item">
+                    <h2><a href="#">Lead Python Developer</a></h2>
+                    <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> San Francisco, Dropbox <br></h3>
+
+                    <div class="position-list-item-date">11/11/2015</div><!-- /.position-list-item-date -->
+                    <div class="position-list-item-action"><a href="#">Save Position</a></div><!-- /.position-list-item-action -->
+                </div><!-- /.positions-list-item -->
+
+                <div class="positions-list-item">
+                    <h2><a href="#">Personal Relations Manager</a></h2>
+                    <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> San Francisco, Dropbox <br></h3>
+
+                    <div class="position-list-item-date">11/11/2015</div><!-- /.position-list-item-date -->
+                    <div class="position-list-item-action"><a href="#">Save Position</a></div><!-- /.position-list-item-action -->
+                </div><!-- /.positions-list-item -->
+
+                <div class="positions-list-item">
+                    <h2><a href="#">Account Manager</a></h2>
+                    <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> San Francisco, Dropbox <br></h3>
+
+                    <div class="position-list-item-date">11/11/2015</div><!-- /.position-list-item-date -->
+                    <div class="position-list-item-action"><a href="#">Save Position</a></div><!-- /.position-list-item-action -->
+                </div><!-- /.positions-list-item -->
+            </div><!-- /.positions-list -->
+        </div><!-- /.col-sm-8 -->
+    </div><!-- /.row -->
+</div><!-- /.container -->
+
+        </div><!-- /.main -->
+    </div><!-- /.main-wrapper -->
