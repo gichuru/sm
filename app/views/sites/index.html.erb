@@ -23,7 +23,7 @@
         <h2 class="page-header">Displaying <strong>21</strong> companies matching your query</h2>
 
         <div class="companies-list">
-          <% @offices.each do |office| %>
+          <% @sites.each do |site| %>
 
                 <div class="companies-list-item">
                     <div class="companies-list-item-image">
@@ -33,8 +33,8 @@
                     </div><!-- /.companies-list-item-image -->
 
                     <div class="companies-list-item-heading">
-                        <h2><%= link_to office.name, office %></h2>
-                        <h3><%= office.location %></h3>
+                        <h2><%= link_to site.name, site %></h2>
+                        <h3><%= site.location %></h3>
                     </div><!-- /.companies-list-item-heading -->
 
                     <div class="companies-list-item-count">

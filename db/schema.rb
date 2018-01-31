@@ -12,6 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20180116082518) do
 
+  create_table "amenties", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "space_id"
+    t.integer  "site_id"
+    t.index ["site_id"], name: "index_amenties_on_site_id"
+    t.index ["space_id"], name: "index_amenties_on_space_id"
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string   "city"
     t.datetime "created_at", null: false
@@ -26,20 +36,6 @@ ActiveRecord::Schema.define(version: 20180116082518) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "offices", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "location"
-    t.string   "email"
-    t.integer  "phone"
-    t.string   "website"
-    t.string   "logo"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_offices_on_user_id"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.string   "text"
     t.datetime "created_at", null: false
@@ -50,17 +46,32 @@ ActiveRecord::Schema.define(version: 20180116082518) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "spaces", force: :cascade do |t|
-    t.string   "type"
+  create_table "sites", force: :cascade do |t|
+    t.string   "name"
     t.text     "description"
-    t.integer  "capacity"
-    t.integer  "qty"
-    t.string   "photo"
-    t.integer  "price"
+    t.string   "location"
+    t.string   "email"
+    t.integer  "phone"
+    t.string   "website"
+    t.string   "logo"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "office_id"
-    t.index ["office_id"], name: "index_spaces_on_office_id"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_sites_on_user_id"
+  end
+
+  create_table "spaces", force: :cascade do |t|
+    t.string   "type"
+    t.integer  "accomodate"
+    t.integer  "qty"
+    t.text     "description"
+    t.string   "photos"
+    t.integer  "price"
+    t.boolean  "active"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "site_id"
+    t.index ["site_id"], name: "index_spaces_on_site_id"
   end
 
   create_table "users", force: :cascade do |t|

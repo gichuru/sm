@@ -1,0 +1,91 @@
+
+<div class="container">
+<div class="header-slogan">
+    <span class="header-slogan-slash">/</span>
+    <span class="header-slogan-text">Add you Space</span>
+</div><!-- /.header-slogan-->
+<br>
+<hr>
+<div class="container">
+  <br>
+<div class="col-sm-9">
+  <%= form_for([@site, @space]) do |f| %>
+  <div class="row">
+      <div class="col-sm-4">
+          <div class="form-group">
+            <%= f.label :photos %>
+            <%= f.text_field :photos, class:"form-control"  %>
+          </div><!-- /.form-group-->
+      </div><!-- /.col-* -->
+      <div class="col-sm-8">
+
+        <div class="form-group">
+          <%= f.label :type %>
+          <%= f.text_field :type, class:"form-control"  %>
+        </div><!-- /.form-group-->
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class:"form-control", rows: 5  %>
+        </div><!-- /.form-group-->
+    </div>
+        <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :accomodate %>
+          <%= f.text_field :accomodate, class:"form-control", rows: 5  %>
+        </div><!-- /.form-group-->
+      </div>
+          <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :Quantity %>
+          <%= f.text_field :qty, class:"form-control", rows: 5  %>
+        </div><!-- /.form-group-->
+      </div>
+          <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :price %>
+          <%= f.text_field :price, class:"form-control", rows: 5  %>
+        </div><!-- /.form-group-->
+      </div>
+  </div>
+      <br>
+      <div class="center">
+          <%= f.submit "Add my site", class: "btn btn-secondary btn-lg" %>
+      </div><!-- /.center -->
+  <% end %>
+</div>
+
+ <!-- Right column starts here  -->
+<div class="col-sm-3">
+<div class="widget">
+<p>
+    <a href="login.html" class="btn btn-block btn-secondary">Sign In</a>
+</p>
+
+<p>
+    <a href="#" class="btn btn-block btn-linkedin">LinkedIn Import</a>
+</p>
+
+<p>
+    <a href="#" class="btn btn-block btn-default">Quick Preview</a>
+</p>
+</div><!-- /.widget -->
+
+<div class="widget">
+<h2>Navigation</h2>
+
+<ul class="nav">
+    <li><a href="#"><span>1.</span> Basic Information</a></li>
+    <li><a href="#"><span>2.</span> Contact</a></li>
+    <li><a href="#"><span>3.</span> Biography</a></li>
+    <li><a href="#"><span>4.</span> Experience</a></li>
+    <li><a href="#"><span>5.</span> Education </a></li>
+</ul>
+</div><!-- /.widget -->
+
+<div class="widget">
+<h2>Do you have an account?</h2>
+
+<p>If you don't have an account and you are looking for new employees. Feel free to <a href="registration.html">create new registration</a> for companies with transparent pricing.</p>
+</div><!-- /.widget -->
+</div><!-- /.col-* -->
+</div><!-- /.container -->

@@ -1,6 +1,6 @@
 class InitialSchema < ActiveRecord::Migration[5.0]
   def change
-    create_table :offices do |t|
+    create_table :sites do |t|
       t.string  :name
       t.text    :description
       t.string  :location
@@ -12,12 +12,18 @@ class InitialSchema < ActiveRecord::Migration[5.0]
     end
 
     create_table :spaces do |t|
-      t.string  :type
-      t.text    :description
-      t.integer :capacity
+      t.string  :type #Desk, office, boardroom, meeting room, field, restaurant
+      t.integer :accomodate
       t.integer :qty
-      t.string  :photo
+      t.text    :description
+      t.string  :photos
       t.integer :price
+      t.boolean :active
+      t.timestamps
+    end
+
+    create_table :amenties do |t|
+      t.string :name #internet, kitchen, parking, aircondition, projector
       t.timestamps
     end
 
@@ -37,8 +43,11 @@ class InitialSchema < ActiveRecord::Migration[5.0]
     end
 
     add_reference :cities, :country, index: true
-    #add_reference :offices, :city, index: true
-    add_reference :spaces, :office, index: true
+    #add_reference :sites, :city, index: true
+    add_reference :spaces, :site, index: true
     add_reference :reviews, :space, index: true
+    add_reference :amenties, :space, index: true
+    add_reference :amenties, :site, index: true
+
   end
 end

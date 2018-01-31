@@ -1,5 +1,5 @@
-class Space < ActiveRecord::base
-  belongs_to :office
+class Space < ActiveRecord::Base
+  belongs_to :site
   has_many :reviews
 
 end
