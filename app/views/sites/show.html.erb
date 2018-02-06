@@ -29,68 +29,47 @@
     <div class="row">
         <div class="col-sm-8">
             <div class="company-header text-right">
-                <a href="#" class="btn btn-secondary">Favorite</a>
+                <a href="#" class="btn btn-secondary">Rate us</a>
                 <a href="#" class="btn btn-default">Receive updates</a>
-                <a href="#" class="btn btn-default">Follow</a>
+                <a href="#" class="btn btn-default">Follow us</a>
             </div><!-- /.company-header -->
 
             <div class="company-stats">
                 <div class="company-stat">
-                    <span>Positions</span>
-                    <strong>12</strong>
+                    <span>Offices</span>
+                    <strong><%= Space.count %></strong>
                 </div><!-- /.company-stat -->
 
                 <div class="company-stat">
-                    <span>Employees</span>
-                    <strong>43</strong>
+                    <span>Booked</span>
+                    <strong>0</strong>
                 </div><!-- /.company-stat -->
 
                 <div class="company-stat">
-                    <span>Followers</span>
-                    <strong>324</strong>
+                    <span>Members</span>
+                    <strong>0</strong>
                 </div><!-- /.company-stat -->
             </div><!-- /.company-stat -->
 
-            <h3 class="page-header">Company Profile</h3>
+            <h3 class="page-header">Who we are</h3>
 
             <p>
               <%= @site.description %>
             </p>
 
-            <h3 class="page-header">Open Positions</h3>
+
+            <h3 class="page-header">Book one of our offices</h3>
 
             <div class="positions-list">
+              <% @site.spaces.each do |space| %>
                 <div class="positions-list-item">
-                    <h2><a href="#">Senior Data Analytist</a></h2>
-                    <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> San Francisco, Dropbox <br></h3>
+                    <h2><%= space.name %></h2>
+                    <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> <%= space.description %> <br></h3>
 
-                    <div class="position-list-item-date">11/11/2015</div><!-- /.position-list-item-date -->
-                    <div class="position-list-item-action"><a href="#">Save Position</a></div><!-- /.position-list-item-action -->
+                    <div class="position-list-item-date">Rating 4/5</div><!-- /.position-list-item-date -->
+                    <div class="position-list-item-action"><a href="#">View Space</a></div><!-- /.position-list-item-action -->
                 </div><!-- /.positions-list-item -->
-
-                <div class="positions-list-item">
-                    <h2><a href="#">Lead Python Developer</a></h2>
-                    <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> San Francisco, Dropbox <br></h3>
-
-                    <div class="position-list-item-date">11/11/2015</div><!-- /.position-list-item-date -->
-                    <div class="position-list-item-action"><a href="#">Save Position</a></div><!-- /.position-list-item-action -->
-                </div><!-- /.positions-list-item -->
-
-                <div class="positions-list-item">
-                    <h2><a href="#">Personal Relations Manager</a></h2>
-                    <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> San Francisco, Dropbox <br></h3>
-
-                    <div class="position-list-item-date">11/11/2015</div><!-- /.position-list-item-date -->
-                    <div class="position-list-item-action"><a href="#">Save Position</a></div><!-- /.position-list-item-action -->
-                </div><!-- /.positions-list-item -->
-
-                <div class="positions-list-item">
-                    <h2><a href="#">Account Manager</a></h2>
-                    <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> San Francisco, Dropbox <br></h3>
-
-                    <div class="position-list-item-date">11/11/2015</div><!-- /.position-list-item-date -->
-                    <div class="position-list-item-action"><a href="#">Save Position</a></div><!-- /.position-list-item-action -->
-                </div><!-- /.positions-list-item -->
+                <% end %>
             </div><!-- /.positions-list -->
         </div><!-- /.col-sm-8 -->
         <div class="col-sm-4">
@@ -132,7 +111,7 @@
             </div><!-- /.widget -->
 
             <div class="widget">
-                <h2>Contact Company</h2>
+                <h2>Have a general question?</h2>
 
                 <form method="get" action="?">
                     <div class="form-group">
@@ -147,7 +126,7 @@
                         <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
                     </div><!-- /.form-group -->
 
-                    <button class="btn btn-secondary pull-right" type="submit">Post Message</button>
+                    <button class="btn btn-secondary pull-right" type="submit">Ask us</button>
                 </form>
             </div><!-- /.widget -->
         </div><!-- /.col-* -->

@@ -1,9 +1,9 @@
-
 <div class="container">
 <div class="header-slogan">
     <span class="header-slogan-slash">/</span>
     <span class="header-slogan-text">Add you site</span>
 </div><!-- /.header-slogan-->
+</div>
 <br>
 <hr>
 <div class="container">
@@ -13,11 +13,12 @@
   <h2>Navigation</h2>
 
   <ul class="nav">
-      <li><a href="#"><span>1.</span> Basic Information</a></li>
-      <li><a href="#"><span>2.</span> Contact</a></li>
-      <li><a href="#"><span>3.</span> Biography</a></li>
-      <li><a href="#"><span>4.</span> Experience</a></li>
-      <li><a href="#"><span>5.</span> Education </a></li>
+      <li><a href="#"><span>1.</span> Name of Space</a></li>
+      <li><a href="#"><span>2.</span> description</a></li>
+      <li><a href="#"><span>3.</span> Upload Logo</a></li>
+      <li><a href="#"><span>4.</span> Location </a></li>
+      <li><a href="#"><span>5.</span> Contact Information </a></li>
+      <li><a href="#"><span>5.</span> General Amenities </a></li>
   </ul>
   </div><!-- /.widget -->
 
@@ -45,12 +46,6 @@
 <div class="col-sm-9">
   <%= form_for @site do |f|  %>
   <div class="row">
-      <div class="col-sm-4">
-          <div class="form-group">
-            <%= f.label :logo %>
-            <%= f.text_field :logo, class:"form-control"  %>
-          </div><!-- /.form-group-->
-      </div><!-- /.col-* -->
       <div class="col-sm-8">
 
         <div class="form-group">
@@ -62,6 +57,12 @@
           <%= f.text_area :description, class:"form-control", rows: 5  %>
         </div><!-- /.form-group-->
       </div>
+      <div class="col-sm-4">
+          <div class="form-group">
+            <%= f.label :logo %>
+            <%= f.text_field :logo, class:"form-control"  %>
+          </div><!-- /.form-group-->
+      </div><!-- /.col-* -->
   </div>
   <h3 class="page-header">Contact Information</h3>
   <div class="row">
@@ -86,10 +87,18 @@
         <%= f.text_field :website, class:"form-control"  %>
       </div><!-- /.col-* -->
       </div>
+      <div class="row">
+        <%= hidden_field_tag "site[amenity_ids][]", nil %>
+        <% Amenity.all.each do |amenity| %>
+        <%= check_box_tag "site[amenity_ids][]", amenity.id %>
+        <%= amenity.name %>
+        <% end %>
+      </div>
       <br>
       <div class="center">
           <%= f.submit "Add my site", class: "btn btn-secondary btn-lg" %>
       </div><!-- /.center -->
   <% end %>
+
 </div>
 </div><!-- /.container -->

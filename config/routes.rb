@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 resources :sites do
   resources :spaces
 end
+  resources :amenities
 
 root "homes#index"
 

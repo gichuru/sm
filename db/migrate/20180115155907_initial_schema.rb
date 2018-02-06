@@ -12,7 +12,7 @@ class InitialSchema < ActiveRecord::Migration[5.0]
     end
 
     create_table :spaces do |t|
-      t.string  :type #Desk, office, boardroom, meeting room, field, restaurant
+      t.string  :name #Desk, office, boardroom, meeting room, field, restaurant
       t.integer :accomodate
       t.integer :qty
       t.text    :description
@@ -22,7 +22,16 @@ class InitialSchema < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-    create_table :amenties do |t|
+    create_table :amenities do |t|
+      t.string :name #internet, kitchen, parking, aircondition, projector
+      t.timestamps
+    end
+
+    create_table :facilities do |t|
+      t.timestamps
+    end
+
+    create_table :categories do |t|
       t.string :name #internet, kitchen, parking, aircondition, projector
       t.timestamps
     end
@@ -43,11 +52,14 @@ class InitialSchema < ActiveRecord::Migration[5.0]
     end
 
     add_reference :cities, :country, index: true
-    #add_reference :sites, :city, index: true
     add_reference :spaces, :site, index: true
     add_reference :reviews, :space, index: true
-    add_reference :amenties, :space, index: true
-    add_reference :amenties, :site, index: true
+    add_reference :amenities, :site, index: true
+    add_reference :facilities, :site, index: true
+    add_reference :facilities, :amenity, index: true
+
+      # add_reference :amenities, :space, index: true
+      #add_reference :sites, :city, index: true
 
   end
 end

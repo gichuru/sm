@@ -1,4 +1,5 @@
 class SitesController < ApplicationController
+
   def index
     @sites = Site.all.order("created_at DESC")
   end
@@ -14,12 +15,12 @@ class SitesController < ApplicationController
   end
   def show
     @site = Site.find(params[:id])
-
+    @space = @site.spaces.order("created_at DESC")
   end
 
   private
     def site_params
       params.require(:site).permit(:logo, :name, :description,
-                      :location, :email, :website, :phone,)
+                      :location, :email, :website, :phone)
     end
 end

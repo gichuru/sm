@@ -12,14 +12,18 @@
 
 ActiveRecord::Schema.define(version: 20180116082518) do
 
-  create_table "amenties", force: :cascade do |t|
+  create_table "amenities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "space_id"
     t.integer  "site_id"
-    t.index ["site_id"], name: "index_amenties_on_site_id"
-    t.index ["space_id"], name: "index_amenties_on_space_id"
+    t.index ["site_id"], name: "index_amenities_on_site_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "cities", force: :cascade do |t|
@@ -34,6 +38,15 @@ ActiveRecord::Schema.define(version: 20180116082518) do
     t.string   "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "facilities", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "site_id"
+    t.integer  "amenity_id"
+    t.index ["amenity_id"], name: "index_facilities_on_amenity_id"
+    t.index ["site_id"], name: "index_facilities_on_site_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -61,7 +74,7 @@ ActiveRecord::Schema.define(version: 20180116082518) do
   end
 
   create_table "spaces", force: :cascade do |t|
-    t.string   "type"
+    t.string   "name"
     t.integer  "accomodate"
     t.integer  "qty"
     t.text     "description"

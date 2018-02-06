@@ -22,6 +22,13 @@
   <body class="hero-content-dark footer-dark">
   <div class="page-wrapper">
     <%= render 'layouts/navbar' %>
+    <div class="container">
+      <h4><%= alert %></h4>
+      <h4><%= notice %></h4>
+
+
+    </div>
+
     <%= yield %>
     <%= render 'layouts/footer' %>
   </div>

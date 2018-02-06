@@ -11,7 +11,7 @@ class SpacesController < ApplicationController
     @space = Space.new(space_params)
     @space.site_id = @site.id
     @space.save
-    redirect_to @space
+    redirect_to @site
   end
 
   def show
@@ -25,7 +25,7 @@ class SpacesController < ApplicationController
 		@site = Site.find(params[:site_id])
 	end
     def space_params
-      params.require(:space).permit(:type,  :accomodate, :description,
+      params.require(:space).permit(:name,  :accomodate, :description,
                       :qty, :photos, :price, :active)
     end
 end

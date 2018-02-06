@@ -2,50 +2,21 @@
 <div class="container">
 <div class="header-slogan">
     <span class="header-slogan-slash">/</span>
-    <span class="header-slogan-text">Add you Space</span>
+    <span class="header-slogan-text">Add you Amenities</span>
 </div><!-- /.header-slogan-->
 <br>
 <hr>
 <div class="container">
   <br>
 <div class="col-sm-9">
-  <%= form_for([@site, @space]) do |f| %>
+  <%= form_for([@site, @amenity]) do |f| %>
   <div class="row">
       <div class="col-sm-4">
           <div class="form-group">
-            <%= f.label :photos %>
-            <%= f.text_field :photos, class:"form-control"  %>
+            <%= f.label :name %>
+            <%= f.text_field :name, class:"form-control"  %>
           </div><!-- /.form-group-->
       </div><!-- /.col-* -->
-      <div class="col-sm-8">
-
-        <div class="form-group">
-          <%= f.label :name %>
-          <%= f.text_field :name, class:"form-control"  %>
-        </div><!-- /.form-group-->
-        <div class="form-group">
-          <%= f.label :description %>
-          <%= f.text_area :description, class:"form-control", rows: 5  %>
-        </div><!-- /.form-group-->
-    </div>
-        <div class="col-sm-3">
-        <div class="form-group">
-          <%= f.label :accomodate %>
-          <%= f.text_field :accomodate, class:"form-control", rows: 5  %>
-        </div><!-- /.form-group-->
-      </div>
-          <div class="col-sm-3">
-        <div class="form-group">
-          <%= f.label :Quantity %>
-          <%= f.text_field :qty, class:"form-control", rows: 5  %>
-        </div><!-- /.form-group-->
-      </div>
-          <div class="col-sm-3">
-        <div class="form-group">
-          <%= f.label :price %>
-          <%= f.text_field :price, class:"form-control", rows: 5  %>
-        </div><!-- /.form-group-->
-      </div>
   </div>
       <br>
       <div class="center">
@@ -53,6 +24,13 @@
       </div><!-- /.center -->
   <% end %>
 
+
+    <div class="row">
+      <% Amenity.all.each do |amenity| %>
+      <%= check_box_tag "site[amenity_ids][]", amenity.id %>
+      <%= amenity.name %>
+      <% end %>
+    </div>
 </div>
 
  <!-- Right column starts here  -->
