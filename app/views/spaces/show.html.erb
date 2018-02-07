@@ -1,0 +1,118 @@
+<div class="main-wrapper">
+    <div class="main">
+        <div class="document-title">
+            <div class="container">
+              <h1><%= @space.photos %></h1>
+            </div><!-- /.container -->
+        </div>
+        <!-- /.document-title -->
+<!--
+        <div class="document-breadcrumb">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li><a href="#">Custom page</a></li>
+                </ul>
+            </div>
+        </div> -->
+        <!--end of breadcrumb  -->
+<div class="container">
+<div class="row">
+    <div class="col-sm-8">
+        <h3 class="page-header"><%= @space.name %></h3>
+        <p>
+          <%= @space.description %>
+        </p>
+
+        <h3 class="page-header">Amenities</h3>
+
+        <h3 class="page-header">Rating and Reviews </h3>
+    </div><!-- /.col-sm-8 -->
+
+    <!-- Right column starts here -->
+    <div class="col-sm-4">
+      <div class="company-card">
+        <div class="company-card-image">
+          <div class="company-stats">
+    <!-- <span>Our Brand</span> -->
+            <div class="company-stat">
+                <!-- <span>price Kshs</span> -->
+                <strong><%= @space.price %></strong>
+                <i>Price</i>
+            </div><!-- /.company-stat -->
+            <div class="company-stat">
+                <strong><%= @space.qty %></strong>
+                <i>Quantity</i>
+            </div><!-- /.company-stat -->
+            <div class="company-stat">
+                <strong><%= @space.accomodate %></strong>
+                <i>accomodates</i>
+            </div><!-- /.company-stat -->
+          </div><!-- /.company-card-image -->
+
+          <div class="row">
+            <div class="btn btn-wide btn-secondary">Book this Desk</div>
+            <div class="btn btn-wide btn-primary">Schedule a tour</div>
+            <br><br>
+            <div class="btn  btn-default">Share this</div>
+            <!-- <div class="btn btn-default">Receive updates</div> -->
+            <p>terms and conditions apply</p>
+          </div>
+        </div>
+      </div>
+<!--
+<div class="company-card-data">
+    <dl>
+        <dt>Price</dt>
+        <dd></dd>
+
+        <dt>QTY</dt>
+        <dd><%= @space.qty %></dd>
+
+        <dt>Accomodates</dt>
+        <dd><%= @space.accomodate %></dd>
+
+        <dt>Address</dt>
+        <dd>
+
+        </dd>
+    </dl>
+</div> -->
+<!-- /.company-card-data -->
+<!-- /.company-card -->
+        <!-- <div class="widget">
+            <ul class="social-links">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+            </ul>
+        </div> -->
+        <!-- /.widget -->
+
+        <div class="widget">
+            <h2>Have a general question?</h2>
+
+            <form method="get" action="?">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Subject">
+                </div><!-- /.form-group -->
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your E-mail">
+                </div><!-- /.form-group -->
+
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                </div><!-- /.form-group -->
+
+                <button class="btn btn-secondary pull-right" type="submit">Ask us</button>
+            </form>
+        </div><!-- /.widget -->
+    </div><!-- /.col-* -->
+</div><!-- /.row -->
+</div><!-- /.container -->
+
+    </div><!-- /.main -->
+</div><!-- /.main-wrapper -->

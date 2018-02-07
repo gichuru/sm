@@ -1,6 +1,8 @@
 class SpacesController < ApplicationController
   before_action :set_site
+
   def index
+    # @spaces = current_user.spaces
   end
 
   def new
@@ -11,12 +13,11 @@ class SpacesController < ApplicationController
     @space = Space.new(space_params)
     @space.site_id = @site.id
     @space.save
-    redirect_to @site
+    redirect_to @space.site
   end
 
   def show
     @space = Space.find(params[:id])
-
   end
 
   private
@@ -25,7 +26,7 @@ class SpacesController < ApplicationController
 		@site = Site.find(params[:site_id])
 	end
     def space_params
-      params.require(:space).permit(:name,  :accomodate, :description,
+      params.require(:space).permit(:name, :accomodate, :description,
                       :qty, :photos, :price, :active)
     end
 end

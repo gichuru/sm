@@ -13,6 +13,7 @@ class SitesController < ApplicationController
     @site.save
     redirect_to @site
   end
+
   def show
     @site = Site.find(params[:id])
     @space = @site.spaces.order("created_at DESC")

@@ -1,17 +1,10 @@
     <div class="main-wrapper">
         <div class="main">
+
             <div class="document-title">
                 <div class="container">
-                  <h1><%= @site.name %>:<span> Incubator, accellerator, co-working</span>
-
-                    <%= link_to "Add Item", new_site_space_path(@site), class: "btn btn-secondary pull-right" %>
-                  </h1>
-
+                  <h1><%= @site.name %>:<span> Incubator, accellerator, co-working</span></h1>
                 </div><!-- /.container -->
-                <div class="container">
-                  <i class ="pull-right">i.e desks, offices, meeting rooms</i>
-                </div>
-
             </div><!-- /.document-title -->
 
             <div class="document-breadcrumb">
@@ -24,7 +17,6 @@
                 </div>
             </div>
             <!--end of breadcrumb  -->
-
 <div class="container">
     <div class="row">
         <div class="col-sm-8">
@@ -32,6 +24,8 @@
                 <a href="#" class="btn btn-secondary">Rate us</a>
                 <a href="#" class="btn btn-default">Receive updates</a>
                 <a href="#" class="btn btn-default">Follow us</a>
+                <%= link_to "Add Item", new_site_space_path(@site), class: "btn btn-primary pull-right" %>
+
             </div><!-- /.company-header -->
 
             <div class="company-stats">
@@ -57,15 +51,13 @@
               <%= @site.description %>
             </p>
 
-
             <h3 class="page-header">Book one of our offices</h3>
 
             <div class="positions-list">
               <% @site.spaces.each do |space| %>
                 <div class="positions-list-item">
-                    <h2><%= space.name %></h2>
+                    <h2><%= link_to space.name, site_space_path(@site,space) %></h2>
                     <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> <%= space.description %> <br></h3>
-
                     <div class="position-list-item-date">Rating 4/5</div><!-- /.position-list-item-date -->
                     <div class="position-list-item-action"><a href="#">View Space</a></div><!-- /.position-list-item-action -->
                 </div><!-- /.positions-list-item -->
@@ -75,10 +67,8 @@
         <div class="col-sm-4">
             <div class="company-card">
     <div class="company-card-image">
-        <span>Top Employeer</span>
-        <a href="company-detail.html">
-            <img src="assets/img/tmp/dropbox.png" alt=""></a>
-        </a>
+        <span>Our Brand</span>
+        <p>Logo Goes Here</p>
     </div><!-- /.company-card-image -->
 
     <div class="company-card-data">
@@ -99,16 +89,15 @@
         </dl>
     </div><!-- /.company-card-data -->
 </div><!-- /.company-card -->
-
-
-            <div class="widget">
+            <!-- <div class="widget">
                 <ul class="social-links">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                     <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
                 </ul>
-            </div><!-- /.widget -->
+            </div> -->
+            <!-- /.widget -->
 
             <div class="widget">
                 <h2>Have a general question?</h2>
