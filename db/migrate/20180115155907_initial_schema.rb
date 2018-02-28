@@ -7,7 +7,7 @@ class InitialSchema < ActiveRecord::Migration[5.0]
       t.string  :email
       t.integer :phone
       t.string :website
-      t.string  :logo
+      t.string  :image
       t.timestamps
     end
 
@@ -16,7 +16,6 @@ class InitialSchema < ActiveRecord::Migration[5.0]
       t.integer :accomodate
       t.integer :qty
       t.text    :description
-      t.string  :photos
       t.integer :price
       t.boolean :active
       t.timestamps
@@ -24,6 +23,11 @@ class InitialSchema < ActiveRecord::Migration[5.0]
 
     create_table :amenities do |t|
       t.string :name #internet, kitchen, parking, aircondition, projector
+      t.timestamps
+    end
+
+    create_table :photos do |t|
+      t.string :image #internet, kitchen, parking, aircondition, projector
       t.timestamps
     end
 
@@ -53,6 +57,7 @@ class InitialSchema < ActiveRecord::Migration[5.0]
 
     add_reference :cities, :country, index: true
     add_reference :spaces, :site, index: true
+    add_reference :photos, :space, index: true
     add_reference :reviews, :space, index: true
     add_reference :amenities, :site, index: true
     add_reference :facilities, :site, index: true

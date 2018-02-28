@@ -4,4 +4,5 @@ class Site < ActiveRecord::Base
   has_many :spaces
   has_many :facilities
   has_many :amenities, through: :facilities
+  mount_uploader :image, ImageUploader
 end

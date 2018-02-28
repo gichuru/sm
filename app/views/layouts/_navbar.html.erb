@@ -1,33 +1,50 @@
-<div class="header-top">
-    <div class="container">
-        <div class="header-brand">
-            <div class="header-logo">
-              <h3>  <%= link_to "Seat & Meet", root_path, class: "header-logo-highlight"  %></h3>
-            </div><!-- /.header-logo-->
-            <div class="header-slogan">
-                <span class="header-slogan-slash">/</span>
-                <span class="header-slogan-text">Seat, Meet, Engage</span>
-            </div><!-- /.header-slogan-->
-        </div><!-- /.header-brand -->
+<header id="pageTop" class="header">
+  <!-- TOP INFO BAR -->
+  <div class="nav-wrapper navbarWhite">
+    <!-- NAVBAR -->
+    <nav id="menuBar" class="navbar navbar-default lightHeader animated " role="navigation">
+      <div class="container">
 
-        <ul class="header-actions nav nav-pills">
-          <%  if (!user_signed_in?) %>
-            <li><%= link_to "Login", new_user_session_path, class: 'page-scroll' %></li>
-            <li><%= link_to "Sign Up", new_user_registration_path, class: 'page-scroll' %></li>
-          <% else %>
-            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          <% end %>
-            <li><%= link_to "Add my Space", new_site_path, class: "primary" %></li>
-        </ul><!-- /.header-actions -->
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
 
+          <div class="navbar-brand"> Seat & meet / Coworking
+          </div>
 
-        <!-- <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".header-nav">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button> -->
-    </div><!-- /.container -->
-</div><!-- /.header-top -->
-<hr>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Sites", sites_path %></li>
+
+              <li><a href="#">Pic</a></li>
+
+              <%  if (!user_signed_in?) %>
+                <li><%= link_to "Login", new_user_session_path %></li>
+                <li><%= link_to "Sign Up", new_user_registration_path%></li>
+              <% else %>
+              <li class=" dropdown singleDrop">
+                <a href="javascript:void(0)" class="dropdown-toggle"
+                data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false"><%= current_user.fullname %> <i class="fa fa-angle-down"
+
+                aria-hidden="true"></i></a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                  <li><a href="#">My Dashboard</a></li>
+                  <li><a href="#">My Orders</a></li>
+                  <li><a href="#">My Reviews</a></li>
+                  <li><a href="#">My Listings</a></li>
+                  <li><a href="#">My Profile</a></li>
+                  <li><%= link_to "Update Profile", edit_user_registration_path %></li>
+                  <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </li>
+              <% end %>
+            </ul>
+        </div>
+        <%= link_to "Add my Space", new_site_path, class: "btn btn-default navbar-btn" %>
+      </div>
+    </nav>
+  </div>

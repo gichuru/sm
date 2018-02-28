@@ -1,9 +1,12 @@
 <div class="main-wrapper">
-    <div class="main">
+    <!-- <div class="main"> -->
         <div class="document-title">
-            <div class="container">
-              <h1><%= @space.photos %></h1>
-            </div><!-- /.container -->
+             <!-- <div class="container"> -->
+              <% @space.photos.each do |photo| %>
+            <%= image_tag photo.image %>
+              <% end %>
+            <!-- </div> -->
+            <!-- /.container -->
         </div>
         <!-- /.document-title -->
 <!--
@@ -17,9 +20,15 @@
             </div>
         </div> -->
         <!--end of breadcrumb  -->
+
 <div class="container">
 <div class="row">
     <div class="col-sm-8">
+      <div class="company-header text-left">
+
+          <%= link_to "Add/Edit Photos", new_space_photo_path(@space), class: "btn btn-secondary pull-right" %>
+
+      </div><!-- /.company-header -->
         <h3 class="page-header"><%= @space.name %></h3>
         <p>
           <%= @space.description %>
@@ -114,5 +123,6 @@
 </div><!-- /.row -->
 </div><!-- /.container -->
 
-    </div><!-- /.main -->
+    <!-- </div> -->
+    <!-- /.main -->
 </div><!-- /.main-wrapper -->

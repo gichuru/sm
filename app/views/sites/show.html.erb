@@ -6,6 +6,13 @@
                   <h1><%= @site.name %>:<span> Incubator, accellerator, co-working</span></h1>
                 </div><!-- /.container -->
             </div><!-- /.document-title -->
+            <div class="container">
+              <div class="row">
+                <%= image_tag @site.image_url %>
+
+              </div>
+
+            </div>
 
             <div class="document-breadcrumb">
                 <div class="container">
@@ -24,8 +31,9 @@
                 <a href="#" class="btn btn-secondary">Rate us</a>
                 <a href="#" class="btn btn-default">Receive updates</a>
                 <a href="#" class="btn btn-default">Follow us</a>
+                <% if user_signed_in?%>
                 <%= link_to "Add Item", new_site_space_path(@site), class: "btn btn-primary pull-right" %>
-
+                <% end %>
             </div><!-- /.company-header -->
 
             <div class="company-stats">
@@ -56,7 +64,7 @@
             <div class="positions-list">
               <% @site.spaces.each do |space| %>
                 <div class="positions-list-item">
-                    <h2><%= link_to space.name, site_space_path(@site,space) %></h2>
+                    <h2><%= link_to space.name, space_path(space) %></h2>
                     <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> <%= space.description %> <br></h3>
                     <div class="position-list-item-date">Rating 4/5</div><!-- /.position-list-item-date -->
                     <div class="position-list-item-action"><a href="#">View Space</a></div><!-- /.position-list-item-action -->
@@ -68,7 +76,7 @@
             <div class="company-card">
     <div class="company-card-image">
         <span>Our Brand</span>
-        <p>Logo Goes Here</p>
+
     </div><!-- /.company-card-image -->
 
     <div class="company-card-data">

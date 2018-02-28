@@ -17,20 +17,18 @@
 
       <div>
         <% if devise_mapping.rememberable? %>
-            <%= f.check_box :remember_me %>
-          <span class = "pull-right">
-
-            <%= link_to "forgot password?", new_user_password_path %>
-            <br>
-            <%= link_to "new account?", new_user_registration_path %>
-          </span>
+            <%= f.check_box :remember_me %> <i>remember me</i>
         <% end %>
       </div>
       <br>
-
       <div class="actions">
-        <%= f.submit "Log in", class: "btn btn-primary" %>
+        <%= f.submit "Log in", class: "btn btn-primary btn-block" %>
       </div>
+      <br>
+      <span class = "pull-right">
+        <%= link_to "Forgot password?", new_user_password_path %> or
+        <%= link_to "Get an Account", new_user_registration_path %>
+      </span>
     <% end %>
   </div>
 </div>

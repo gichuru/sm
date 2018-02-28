@@ -1,7 +1,8 @@
 class SitesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @sites = Site.all.order("created_at DESC")
+    @site = Site.all.order("created_at DESC")
   end
 
   def new
@@ -10,6 +11,7 @@ class SitesController < ApplicationController
 
   def create
     @site = Site.new(site_params)
+    @site.user_id = current_user.id
     @site.save
     redirect_to @site
   end
@@ -21,7 +23,7 @@ class SitesController < ApplicationController
 
   private
     def site_params
-      params.require(:site).permit(:logo, :name, :description,
-                      :location, :email, :website, :phone)
+      params.require(:site).permit(:image, :name, :description,
+                      :location, :email, :website, :phone, :user_id)
     end
 end

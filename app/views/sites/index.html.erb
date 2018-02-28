@@ -1,107 +1,151 @@
+<!-- CATEGORY SEARCH SECTION -->
 
-    <div class="main-wrapper">
-        <div class="main">
-            <div class="document-title">
-                <div class="container">
-                    <h1>Companies</h1>
-                </div><!-- /.container -->
-            </div><!-- /.document-title -->
+<section class="clearfix searchArea banerInfo searchAreaGray">
+	<form>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon">Find</div>
+							<input type="text" class="form-control" id="findItem" placeholder="What are you looking for?">
+							<div class="input-group-addon addon-right"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 col-xs-12">
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon">Near</div>
+							<input type="text" class="form-control" id="nearLocation" placeholder="Location">
+							<div class="input-group-addon addon-right"><i class="icon-listy icon-target" aria-hidden="true"></i></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 col-xs-12">
+					<div class="searchPart">
+						<div class="searchPartInner">
+							<div class="searchPartTitle">Category</div>
+							<div class="searchSelectboxes">
+								<select name="guiest_id32" id="guiest_id32" class="select-drop">
+									<option value="0">All Categories</option>
+									<option value="1">All Categories 1</option>
+									<option value="2">All Categories 2</option>
+									<option value="3">All Categories 3</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</section>
 
-            <div class="document-breadcrumb">
-                <div class="container">
-                    <ul class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Pages</a></li>
-                        <li><a href="#">Custom page</a></li>
-                    </ul>
-                </div><!-- /.container -->
-            </div><!-- /.document-title -->
 
-            <div class="container">
-    <div class="row">
-    <div class="col-sm-9">
-        <h2 class="page-header">Displaying <strong>21</strong> companies matching your query</h2>
 
-        <div class="companies-list">
-          <% @sites.each do |site| %>
+<!-- CATEGORY LIST SECTION -->
 
-                <div class="companies-list-item">
-                    <div class="companies-list-item-image">
-                        <a href="#">
-                          <img src="assets/img/tmp/dropbox.png" alt="">
-                        </a>
-                    </div><!-- /.companies-list-item-image -->
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4 col-xs-12">
+				<div class="clearfix map-sidebar map-right map-margin-btm">
+					<div id="map"  style="position:relative; margin: 0;padding: 0;height: 538px; max-width: none;"></div>
+				</div>
+				<div class="sidebarInner sidebarCategory">
+					<div class="panel panel-default">
+						<div class="panel-heading">Filter by Area</div>
+						<div class="panel-body">
+							<ul class="list-unstyle categoryList">
+								<li><a href="#">Dhaka</a></li>
+								<li><a href="#">Chittagong</a></li>
+								<li><a href="#">Rajshahi</a></li>
+								<li><a href="#">Khulna</a></li>
+								<li><a href="#">Barisal</a></li>
+								<li><a href="#">Sylhet</a></li>
+								<li><a href="#">Rangpure</a></li>
+								<li><a href="#">Gazipure</a></li>
+								<li><a href="#">Pabna</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="sidebarInner sidebarCategory">
+					<div class="panel panel-default">
+						<div class="panel-heading">Related Categories</div>
+						<div class="panel-body">
+							<ul class="list-unstyle categoryList">
+								<li><a href="#">Fast food</a></li>
+								<li><a href="#">Chinese restaurants</a></li>
+								<li><a href="#">Creole restaurants</a></li>
+								<li><a href="#">Seafood</a></li>
+								<li><a href="#">Thai restaurants</a></li>
+								<li><a href="#">Street food</a></li>
+								<li><a href="#">Japanese restaurants</a></li>
+								<li><a href="#">Greek restaurants</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-8 col-xs-12">
+				<div class="resultBar barSpaceAdjust">
+					<h2>We found <span><%= Site.count %></span> Results for you</h2>
 
-                    <div class="companies-list-item-heading">
-                        <h2><%= link_to site.name, site %></h2>
-                        <h3><%= site.location %></h3>
-                    </div><!-- /.companies-list-item-heading -->
+					<ul class="list-inline">
+						<li><a href="listing-sidebar-map-full.html"><i class="fa fa-th" aria-hidden="true"></i></a></li>
+						<li class="active"><a href="listing-sidebar-map-right.html"><i class="fa fa-th-list" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+				<% @site.each do |site| %>
+				<div class="listContent">
+					<div class="row">
+						<div class="col-sm-5 col-xs-12">
+							<div class="categoryImage">
+								<%= image_tag site.image_url, alt:"Image category", class:"img-responsive img-rounded" %>
+								<span class="label label-primary">Verified</span>
+							</div>
+						</div>
+						<div class="col-sm-7 col-xs-12">
+							<div class="categoryDetails">
+								<ul class="list-inline rating">
 
-                    <div class="companies-list-item-count">
-                        <a href="#">4 open positions</a>
-                    </div><!-- /.positions-list-item-count -->
+								</ul>
 
-                    <div class="companies-list-item-rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <span class="companies-list-item-rating-count">/ 53</span>
-                    </div><!-- /.companies-list-item-rating -->
-                </div><!-- /.companies-list-item -->
-                <% end %>
-        </div><!-- /.companies-list -->
+								<h2><%= link_to site.name, site_path(site) %> <span class="likeCount"><i class="fa fa-heart-o" aria-hidden="true"></i> 10 k</span></h2>
+								<p><%= site.location %> <span class="placeName"> <%= site.location %>, <%= site.location %> </span></p>
+								<p><%= site.description %> <%= link_to 'Read More', site_path(site) %></p>
+								<ul class="list-inline list-tag">
+									<li><a href="category-list-full.html">Eat & Drink</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<% end %>
 
-         <div class="center">
-	<ul class="pagination">
-		<li>
-			<a href="#">
-				<i class="fa fa-chevron-left"></i>
-			</a>
-		</li>
-
-		<li><a href="#">1</a></li>
-		<li><a href="#">2</a></li>
-		<li class="active"><a href="#">3</a></li>
-		<li><a href="#">4</a></li>
-		<li><a href="#">5</a></li>
-		<li>
-			<a href="#">
-				<i class="fa fa-chevron-right"></i>
-			</a>
-		</li>
-	</ul>
-  </div><!-- /.center -->
-    </div><!-- /.col-* -->
-
-    <div class="sidebar col-sm-3">
-        <h2>Open Positions</h2>
-
-        <div class="positions-list-small">
-            <div class="positions-list-small-item">
-                <h2><a href="#">UX/UI Senior Designer</a></h2>
-                <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> Dropbox Inc. <br>San Francisco, California</h3>
-            </div>
-
-            <div class="positions-list-small-item">
-                <h2><a href="#">Junior Java Tester</a></h2>
-                <h3><span><img src="assets/img/tmp/facebook.png" alt=""></span> Google Inc. <br>San Francisco, California</h3>
-            </div><!-- /.position-list-item -->
-
-            <div class="positions-list-small-item">
-                <h2><a href="#">IT Platform Consultant</a></h2>
-                <h3><span><img src="assets/img/tmp/twitter.png" alt=""></span> Google Inc. <br>San Francisco, California</h3>
-            </div><!-- /.position-list-item -->
-
-            <div class="positions-list-small-item">
-                <h2><a href="#">Senior Frontend Developer</a></h2>
-                <h3><span><img src="assets/img/tmp/instagram.png" alt=""></span> Instragram Inc. <br>San Francisco, California</h3>
-            </div><!-- /.position-list-item -->
-        </div><!-- /.positions-list-small -->
-    </div><!-- /.col-* -->
-</div><!-- /.row -->
-
-</div><!-- /.container -->
-        </div><!-- /.main -->
-    </div><!-- /.main-wrapper -->
+				<div class="paginationCommon blogPagination categoryPagination">
+					<nav aria-label="Page navigation">
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+								</a>
+							</li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

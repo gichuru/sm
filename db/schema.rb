@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116082518) do
+ActiveRecord::Schema.define(version: 20180224105119) do
 
   create_table "amenities", force: :cascade do |t|
     t.string   "name"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20180116082518) do
     t.index ["site_id"], name: "index_facilities_on_site_id"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "space_id"
+    t.index ["space_id"], name: "index_photos_on_space_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.string   "text"
     t.datetime "created_at", null: false
@@ -66,7 +74,7 @@ ActiveRecord::Schema.define(version: 20180116082518) do
     t.string   "email"
     t.integer  "phone"
     t.string   "website"
-    t.string   "logo"
+    t.string   "image"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
@@ -78,7 +86,6 @@ ActiveRecord::Schema.define(version: 20180116082518) do
     t.integer  "accomodate"
     t.integer  "qty"
     t.text     "description"
-    t.string   "photos"
     t.integer  "price"
     t.boolean  "active"
     t.datetime "created_at",  null: false
@@ -100,6 +107,8 @@ ActiveRecord::Schema.define(version: 20180116082518) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "fullname"
+    t.string   "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

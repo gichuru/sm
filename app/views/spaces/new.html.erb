@@ -9,14 +9,8 @@
 <div class="container">
   <br>
 <div class="col-sm-9">
-  <%= form_for([@site, @space]) do |f| %>
+  <%= form_for([@site, @space], :html =>{multipart: true}) do |f| %>
   <div class="row">
-      <div class="col-sm-4">
-          <div class="form-group">
-            <%= f.label :photos %>
-            <%= f.text_field :photos, class:"form-control"  %>
-          </div><!-- /.form-group-->
-      </div><!-- /.col-* -->
       <div class="col-sm-8">
 
         <div class="form-group">
@@ -30,14 +24,14 @@
     </div>
         <div class="col-sm-3">
         <div class="form-group">
-          <%= f.label :accomodate %>
-          <%= f.text_field :accomodate, class:"form-control", rows: 5  %>
+          <%= f.label :accomodate %><br>
+          <%= f.select :accomodate, [[1,1],[2,2],[3,3]], class: "selectpicker" %>
         </div><!-- /.form-group-->
       </div>
           <div class="col-sm-3">
         <div class="form-group">
-          <%= f.label :Quantity %>
-          <%= f.text_field :qty, class:"form-control", rows: 5  %>
+          <%= f.label :Quantity %><br>
+          <%= f.select :qty, [[1,1],[2,2],[3,3]], class: "selectpicker" %>
         </div><!-- /.form-group-->
       </div>
           <div class="col-sm-3">

@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 #added gems below, devise, bootstrap
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'carrierwave', '~> 1.0'
 
 group :development, :test do
 gem 'byebug', platform: :mri

@@ -1,5 +1,5 @@
 class SpacesController < ApplicationController
-  before_action :set_site
+  before_action :set_site, except: [:show]
 
   def index
     # @spaces = current_user.spaces
@@ -18,6 +18,7 @@ class SpacesController < ApplicationController
 
   def show
     @space = Space.find(params[:id])
+    @photo = @space.photos.order("created_at DESC")
   end
 
   private

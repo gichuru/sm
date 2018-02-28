@@ -1,0 +1,26 @@
+<div class="main-wrapper">
+    <div class="col-sm-9" center>
+      <%= form_for :photo, url: space_photos_path(@space, @photo), :html =>{multipart: true} do |f| %>
+      <div class="row">
+          <div class="container">
+              <div class="form-group ">
+                <%= f.label :image %>
+                <%= f.file_field :image, class:"btn btn-default btn-file"  %>
+                <%= f.submit "Add Photos", class: "btn btn-secondary btn-lg" %>
+              </div><!-- /.form-group-->
+          </div><!-- /.col-* -->
+      </div>
+
+      <% end %>
+    </div>
+      <div class="container">
+        <div class="row">
+          <% @space.photos.each do |photo| %>
+            <div class="col-sm-4">
+               <%= image_tag photo.image %>
+            </div>
+          <% end %>
+        </div>
+</div>
+
+</div>

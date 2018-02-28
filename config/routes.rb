@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
 
-resources :sites do
-  resources :spaces
+
+resources :sites, shallow: true do
+  resources :spaces do
+    resources :photos
+  end
 end
+
   resources :amenities
-
-root "homes#index"
-
+  root "homes#index"
 end
