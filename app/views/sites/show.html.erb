@@ -1,134 +1,258 @@
-    <div class="main-wrapper">
-        <div class="main">
+<!-- LISTINGS DETAILS TITLE SECTION -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="listingTitleArea">
+					<h2><%= @site.name %></h2>
+					<p><%= @site.location %><br><%= @site.location %></p>
+					<div class="listingReview">
+						<ul class="list-inline rating">
+							ratings go here
+						</ul>
+						<span>( 5 Reviews )</span>
+						<ul class="list-inline captionItem">
+							<li><i class="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
+						</ul>
 
-            <div class="document-title">
-                <div class="container">
-                  <h1><%= @site.name %>:<span> Incubator, accellerator, co-working</span></h1>
-                </div><!-- /.container -->
-            </div><!-- /.document-title -->
-            <div class="container">
-              <div class="row">
-                <%= image_tag @site.image_url %>
 
-              </div>
+						<a href="#" class="btn btn-primary">Write a review</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-            </div>
+<!-- LISTINGS DETAILS IMAGE SECTION -->
 
-            <div class="document-breadcrumb">
-                <div class="container">
-                    <ul class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Pages</a></li>
-                        <li><a href="#">Custom page</a></li>
-                    </ul>
+<section class="clearfix paddingAdjustTopBottom">
+  <hr>
+
+  <div class="col-sm-4">
+    <%= image_tag @site.image_url, class:"img-responsive" %>
+  </div>
+
+	<ul class="list-inline listingImage">
+	</ul>
+
+</section>
+
+<!-- LISTINGS DETAILS INFO SECTION -->
+
+	<div class="container center">
+		<div class="row">
+			<div class="col-sm-8 col-xs-12">
+				<div class="listDetailsInfo">
+					<div class="detailsInfoBox">
+						<h3>About This site</h3>
+						<p><%= @site.description %></p>
+					</div>
+
+          <% @site.spaces.each do |space| %>
+          <div class="listContent">
+            <div class="row">
+              <div class="col-sm-5 col-xs-12">
+                <div class="categoryImage">
+                  Images go here
+                  <span class="label label-primary">Verified</span>
                 </div>
+              </div>
+              <div class="col-sm-7 col-xs-12">
+                <div class="categoryDetails">
+                  <ul class="list-inline rating">
+
+                  </ul>
+
+                  <h2><%= link_to space.name, space_path(space) %> <span class="likeCount"><i class="fa fa-heart-o" aria-hidden="true"></i> 10 k</span></h2>
+                  <p><%= space.description %> <%= link_to 'book' %></p>
+                  <ul class="list-inline list-tag">
+                    <li><a href="category-list-full.html">Eat & Drink</a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <!--end of breadcrumb  -->
-<div class="container">
-    <div class="row">
-        <div class="col-sm-8">
-            <div class="company-header text-right">
-                <a href="#" class="btn btn-secondary">Rate us</a>
-                <a href="#" class="btn btn-default">Receive updates</a>
-                <a href="#" class="btn btn-default">Follow us</a>
-                <% if user_signed_in?%>
-                <%= link_to "Add Item", new_site_space_path(@site), class: "btn btn-primary pull-right" %>
-                <% end %>
-            </div><!-- /.company-header -->
+          </div>
+          <% end %>
 
-            <div class="company-stats">
-                <div class="company-stat">
-                    <span>Offices</span>
-                    <strong><%= Space.count %></strong>
-                </div><!-- /.company-stat -->
+					<div class="detailsInfoBox">
+						<h3>Features</h3>
+						<ul class="list-inline featuresItems">
+							<li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Wi-Fi</li>
+							<li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Street Parking</li>
+							<li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Alcohol</li>
+							<li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Vegetarian</li>
+							<li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Reservations</li>
+							<li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Pets Friendly</li>
+							<li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Accept Credit Card</li>
+						</ul>
+					</div>
+					<div class="detailsInfoBox">
+            <% if user_signed_in?%>
+            <span class: "col-sm-4 col-xs-12 pull-right">
+            <%= link_to "Add Item", new_site_space_path(@site), class: "btn btn-primary btn-block" %>
+            </span>
+            <% end %>
+						<h3>Reviews (3)</h3>
+						<div class="media media-comment">
+							<div class="media-left">
+							<img src="img/listing/list-user-1.jpg" class="media-object img-circle" alt="Image User">
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">Jessica Brown</h4>
+								<ul class="list-inline rating">
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+								</ul>
+								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan
+								totam rem ape riam,</p>
+							</div>
+						</div>
+						<div class="media media-comment">
+							<div class="media-left">
+							<img src="img/listing/list-user-2.jpg" class="media-object img-circle" alt="Image User">
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">Jessica Brown</h4>
+								<ul class="list-inline rating">
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								</ul>
+								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan
+								totam rem ape riam,</p>
+							</div>
+						</div>
+						<div class="media media-comment">
+							<div class="media-left">
+							<img src="img/listing/list-user-3.jpg" class="media-object img-circle" alt="Image User">
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">Jessica Brown</h4>
+								<ul class="list-inline rating">
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								</ul>
+								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan
+								totam rem ape riam,</p>
+							</div>
+						</div>
+					</div>
+					<div class="detailsInfoBox">
+						<h3>Write A Review </h3>
+						<div class="listingReview">
+							<span>( 5 Reviews )</span>
+							<ul class="list-inline rating rating-review">
+								<li><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li><i class="fa fa-star" aria-hidden="true"></i></li>
+							</ul>
+						</div>
+						<form action="#">
+							<div class="formSection formSpace">
+								<div class="form-group">
+									<textarea class="form-control" rows="3" placeholder="Comment"></textarea>
+								</div>
+								<div class="form-group mb0">
+									<button type="submit" class="btn btn-primary">Send Review</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4 col-xs-12">
+				<!-- <div class="clearfix map-sidebar map-right">
+					<div id="map" style="position:relative; margin: 0;padding: 0;height: 538px; max-width: none;"></div>
+				</div> -->
 
-                <div class="company-stat">
-                    <span>Booked</span>
-                    <strong>0</strong>
-                </div><!-- /.company-stat -->
+        <div class="listingReview">
+          <ul class="list-inline rating">
+            ratings go here
+          </ul>
+          <span>( 5 Reviews )</span>
+          <ul class="list-inline captionItem">
+            <li><i class="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
+          </ul>
 
-                <div class="company-stat">
-                    <span>Members</span>
-                    <strong>0</strong>
-                </div><!-- /.company-stat -->
-            </div><!-- /.company-stat -->
+          <%= link_to "add facility", new_site_space_path(@site), class:"btn btn-primary" %>
 
-            <h3 class="page-header">Who we are</h3>
+          <div class="listSidebar">
+              <div class="logo">
+                <%= image_tag @site.image_url, alt:"Image category", class:"img-responsive img-rounded" %>
+              </div>
+              <br>
 
-            <p>
-              <%= @site.description %>
-            </p>
+					<h3>Location</h3>
+					<div class="contactInfo">
+						<ul class="list-unstyled list-address">
+							<li>
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+								<%= @site.location %>r <br> <%= @site.location %>
+							</li>
+							<li>
+								<i class="fa fa-phone" aria-hidden="true"></i>
+								<%= @site.phone %> <br> +55 654 545 123
+							</li>
+							<li>
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+								<a href="#"><%= @site.email %></a>
+							</li>
+              <li>
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+								<a href="#"><%= @site.website %></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+        </div>
 
-            <h3 class="page-header">Book one of our offices</h3>
 
-            <div class="positions-list">
-              <% @site.spaces.each do |space| %>
-                <div class="positions-list-item">
-                    <h2><%= link_to space.name, space_path(space) %></h2>
-                    <h3><span><img src="assets/img/tmp/dropbox.png" alt=""></span> <%= space.description %> <br></h3>
-                    <div class="position-list-item-date">Rating 4/5</div><!-- /.position-list-item-date -->
-                    <div class="position-list-item-action"><a href="#">View Space</a></div><!-- /.position-list-item-action -->
-                </div><!-- /.positions-list-item -->
-                <% end %>
-            </div><!-- /.positions-list -->
-        </div><!-- /.col-sm-8 -->
-        <div class="col-sm-4">
-            <div class="company-card">
-    <div class="company-card-image">
-        <span>Our Brand</span>
 
-    </div><!-- /.company-card-image -->
+				<div class="listSidebar">
 
-    <div class="company-card-data">
-        <dl>
-            <dt>Website</dt>
-            <dd><%= @site.website %></dd>
-
-            <dt>E-mail</dt>
-            <dd><%= @site.email %></dd>
-
-            <dt>Phone</dt>
-            <dd><%= @site.phone %></dd>
-
-            <dt>Address</dt>
-            <dd>
-            <%= @site.location %>
-            </dd>
-        </dl>
-    </div><!-- /.company-card-data -->
-</div><!-- /.company-card -->
-            <!-- <div class="widget">
-                <ul class="social-links">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-                </ul>
-            </div> -->
-            <!-- /.widget -->
-
-            <div class="widget">
-                <h2>Have a general question?</h2>
-
-                <form method="get" action="?">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject">
-                    </div><!-- /.form-group -->
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your E-mail">
-                    </div><!-- /.form-group -->
-
-                    <div class="form-group">
-                        <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
-                    </div><!-- /.form-group -->
-
-                    <button class="btn btn-secondary pull-right" type="submit">Ask us</button>
-                </form>
-            </div><!-- /.widget -->
-        </div><!-- /.col-* -->
-    </div><!-- /.row -->
-</div><!-- /.container -->
-
-        </div><!-- /.main -->
-    </div><!-- /.main-wrapper -->
+					<h3>Opening Hours</h3>
+					<ul class="list-unstyled sidebarList">
+						<li>
+							<span class="pull-left">Monday</span>
+							<span class="pull-right">08.00am - 05.00pm</span>
+						</li>
+						<li>
+							<span class="pull-left">Tuesday</span>
+							<span class="pull-right">08.00am - 05.00pm</span>
+						</li>
+						<li>
+							<span class="pull-left">Wednesday</span>
+							<span class="pull-right">08.00am - 05.00pm</span>
+						</li>
+						<li>
+							<span class="pull-left">Thrusday</span>
+							<span class="pull-right">08.00am - 05.00pm</span>
+						</li>
+						<li>
+							<span class="pull-left">Friday</span>
+							<span class="pull-right">08.00am - 05.00pm</span>
+						</li>
+						<li>
+							<span class="pull-left">Saturday</span>
+							<span class="pull-right"><a href="#">Closed</a></span>
+						</li>
+						<li>
+							<span class="pull-left">Sunday</span>
+							<span class="pull-right"><a href="#">Closed</a></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

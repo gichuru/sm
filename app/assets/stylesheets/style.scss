@@ -213,6 +213,12 @@ h5 {
 }
 
 /*=== 1.COMMON ===*/
+.logo-sidebar{
+width: 450px;
+height: 450px;
+
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -5442,6 +5448,12 @@ figure:hover .overlay {
   height: 330px;
   border-radius: 5px;
   margin-bottom: 30px;
+}
+
+.logo .img-rounded {
+width: auto;
+height: auto;
+
 }
 
 .populer-city-section .img-box:before {

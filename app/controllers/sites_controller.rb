@@ -19,6 +19,7 @@ class SitesController < ApplicationController
   def show
     @site = Site.find(params[:id])
     @space = @site.spaces.order("created_at DESC")
+    @photos = Photo.where(space_id: @space.ids)
   end
 
   private

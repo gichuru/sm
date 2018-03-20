@@ -1,0 +1,37 @@
+<%= form_for([@site, @space], :html =>{multipart: true}) do |f| %>
+<div class="row">
+    <div class="col-sm-8">
+
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class:"form-control"  %>
+      </div><!-- /.form-group-->
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class:"form-control", rows: 5  %>
+      </div><!-- /.form-group-->
+  </div>
+      <div class="col-sm-3">
+      <div class="form-group">
+        <%= f.label :accomodate %><br>
+        <%= f.select :accomodate, [[1,1],[2,2],[3,3]], class: "selectpicker" %>
+      </div><!-- /.form-group-->
+    </div>
+        <div class="col-sm-3">
+      <div class="form-group">
+        <%= f.label :Quantity %><br>
+        <%= f.select :qty, [[1,1],[2,2],[3,3]], class: "selectpicker" %>
+      </div><!-- /.form-group-->
+    </div>
+        <div class="col-sm-3">
+      <div class="form-group">
+        <%= f.label :price %>
+        <%= f.text_field :price, class:"form-control", rows: 5  %>
+      </div><!-- /.form-group-->
+    </div>
+</div>
+    <br>
+    <div class="center">
+        <%= f.submit "Add my facilities", class: "btn btn-primary btn-block" %>
+    </div><!-- /.center -->
+<% end %>
