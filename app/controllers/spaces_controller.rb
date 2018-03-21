@@ -1,12 +1,17 @@
 class SpacesController < ApplicationController
-  before_action :set_site, except: [:show]
+  before_action :set_site, except: [:show, :index, :destroy]
 
   def index
-    # @spaces = current_user.spaces
+    @space = Space.all
+    # @photo = @space.photos.order("created_at DESC")
   end
 
   def new
     @space = Space.new
+  end
+
+  def edit
+
   end
 
   def create
@@ -19,6 +24,17 @@ class SpacesController < ApplicationController
   def show
     @space = Space.find(params[:id])
     @photo = @space.photos.order("created_at DESC")
+  end
+
+  def destroy
+    @space= Space.find(params[:id])
+      if @space.present?
+    @space.destroy
+      end
+    respond_to do |format|
+      format.html { redirect_to spaces_url, notice: 'Space was successfully Deleted.' }
+      format.json { head :no_content }
+    end
   end
 
   private

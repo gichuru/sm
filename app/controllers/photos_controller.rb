@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-    before_action :set_space
+    before_action :set_space, except: [:destroy]
 
     def index
         @photo = Photo.all
@@ -19,6 +19,17 @@ class PhotosController < ApplicationController
 
     def show
       @photo = Photo.find(params[:id])
+    end
+
+    def destroy
+      @photo = Photo.find(params[:id])
+        if @photo.present?
+      @photo.destroy
+        end
+      respond_to do |format|
+        format.html { redirect_to spaces_url, notice: 'Photo was successfully Deleted.' }
+        format.json { head :no_content }
+      end
     end
 
     private

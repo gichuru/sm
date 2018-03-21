@@ -4,6 +4,8 @@ class InitialSchema < ActiveRecord::Migration[5.0]
       t.string  :name
       t.text    :description
       t.string  :location
+      t.string  :city
+      t.string  :country
       t.string  :email
       t.integer :phone
       t.string :website

@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20180224105119) do
     t.string   "name"
     t.text     "description"
     t.string   "location"
+    t.string   "city"
+    t.string   "country"
     t.string   "email"
     t.integer  "phone"
     t.string   "website"

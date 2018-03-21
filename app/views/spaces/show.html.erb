@@ -1,35 +1,21 @@
-<div class="main-wrapper">
-    <!-- <div class="main"> -->
-        <div class="document-title">
-             <!-- <div class="container"> -->
-              <% @space.photos.each do |photo| %>
-            <%= image_tag photo.image %>
-              <% end %>
-            <!-- </div> -->
-            <!-- /.container -->
-        </div>
-        <!-- /.document-title -->
-<!--
-        <div class="document-breadcrumb">
-            <div class="container">
-                <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Pages</a></li>
-                    <li><a href="#">Custom page</a></li>
-                </ul>
-            </div>
-        </div> -->
-        <!--end of breadcrumb  -->
 
+        <div class="document-title">
+          <% @space.photos.each do |photo| %>
+            <%= image_tag photo.image, class: "company-card-image" %>
+          <% end %>
+
+        </div>
+        <hr>
 <div class="container">
 <div class="row">
     <div class="col-sm-8">
       <div class="company-header text-left">
-
-          <%= link_to "Add/Edit Photos", new_space_photo_path(@space), class: "btn btn-secondary pull-right" %>
-
+        <li><%= link_to "", edit_space_path(@space), class: "glyphicon glyphicon-edit" %></li>
+        <li><%= link_to "", space_path(@space), method: :delete, class: "glyphicon glyphicon-trash"  %></li>
+        <%= link_to "Add/Edit Photos", new_space_photo_path(@space), class: "btn btn-primary pull-right" %>
       </div><!-- /.company-header -->
-        <h3 class="page-header"><%= @space.name %></h3>
+      <br><br>
+        <h3 class="page-header">About: <%= @space.name %></h3>
         <p>
           <%= @space.description %>
         </p>

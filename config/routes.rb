@@ -9,5 +9,6 @@ resources :sites, shallow: true do
 end
 
   resources :amenities
+  resources :spaces
   root "homes#index"
 end

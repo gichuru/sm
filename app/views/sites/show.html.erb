@@ -1,10 +1,19 @@
 <!-- LISTINGS DETAILS TITLE SECTION -->
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="col-sm-2">
+				<div class="logo">
+					<%= image_tag @site.image_url, alt:"Image category", class:"img-responsive img-rounded" %>
+				</div>
+
+			</div>
+
+
+			<div class="col-sm-10">
 				<div class="listingTitleArea">
-					<h2><%= @site.name %></h2>
-					<p><%= @site.location %><br><%= @site.location %></p>
+					<h2>Space by: <%= @site.name %></h2>
+					<p><%= @site.location %>, <span class="placeName">  <%= @site.city %>, <%= @site.country %> </span></p>
+
 					<div class="listingReview">
 						<ul class="list-inline rating">
 							ratings go here
@@ -12,49 +21,40 @@
 						<span>( 5 Reviews )</span>
 						<ul class="list-inline captionItem">
 							<li><i class="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
+
+							 || <p class= "glyphicon glyphicon-lock" ></p> admin
+						<li><%= link_to "", edit_site_path(@site), class: "glyphicon glyphicon-edit" %></li>
+						<li><%= link_to "", site_path(@site), method: :delete, class: "glyphicon glyphicon-trash"  %></li>
+
 						</ul>
 
 
-						<a href="#" class="btn btn-primary">Write a review</a>
+						<a class="btn btn-primary">Book/Tour <%= @site.name %></a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
 
-<!-- LISTINGS DETAILS IMAGE SECTION -->
+<hr>
 
-<section class="clearfix paddingAdjustTopBottom">
-  <hr>
-
-  <div class="col-sm-4">
-    <%= image_tag @site.image_url, class:"img-responsive" %>
-  </div>
-
-	<ul class="list-inline listingImage">
-	</ul>
-
-</section>
-
-<!-- LISTINGS DETAILS INFO SECTION -->
 
 	<div class="container center">
 		<div class="row">
 			<div class="col-sm-8 col-xs-12">
 				<div class="listDetailsInfo">
-					<div class="detailsInfoBox">
-						<h3>About This site</h3>
-						<p><%= @site.description %></p>
-					</div>
 
-          <% @site.spaces.each do |space| %>
+      <% @site.spaces.each do |space| %>
           <div class="listContent">
             <div class="row">
               <div class="col-sm-5 col-xs-12">
                 <div class="categoryImage">
-                  Images go here
-                  <span class="label label-primary">Verified</span>
+									<div class="row">
+										<% space.photos.each do |photo| %>
+												<%= image_tag photo.image, class:"img-responsive img-rounded" %>
+										<% end %>
+										<span class="label label-primary">Verified</span>
+									</div>
                 </div>
               </div>
               <div class="col-sm-7 col-xs-12">
@@ -65,6 +65,12 @@
 
                   <h2><%= link_to space.name, space_path(space) %> <span class="likeCount"><i class="fa fa-heart-o" aria-hidden="true"></i> 10 k</span></h2>
                   <p><%= space.description %> <%= link_to 'book' %></p>
+
+
+										<p>Number: <%= space.qty %> |
+										Accomodates: <%= space.accomodate %> |
+										Kshs. <%= space.price %>/=</p>
+
                   <ul class="list-inline list-tag">
                     <li><a href="category-list-full.html">Eat & Drink</a></li>
                   </ul>
@@ -74,7 +80,7 @@
           </div>
           <% end %>
 
-					<div class="detailsInfoBox">
+					<!-- <div class="detailsInfoBox">
 						<h3>Features</h3>
 						<ul class="list-inline featuresItems">
 							<li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Wi-Fi</li>
@@ -85,19 +91,19 @@
 							<li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Pets Friendly</li>
 							<li><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Accept Credit Card</li>
 						</ul>
-					</div>
+					</div>-->
 					<div class="detailsInfoBox">
-            <% if user_signed_in?%>
+            <!-- <% if user_signed_in?%>
             <span class: "col-sm-4 col-xs-12 pull-right">
-            <%= link_to "Add Item", new_site_space_path(@site), class: "btn btn-primary btn-block" %>
+            <%= link_to "Add Item", new_site_space_path(@site), class:"btn btn-primary btn-block" %>
             </span>
-            <% end %>
-						<h3>Reviews (3)</h3>
+            <% end %> -->
+						<!--<h3>Reviews (3)</h3>
 						<div class="media media-comment">
 							<div class="media-left">
 							<img src="img/listing/list-user-1.jpg" class="media-object img-circle" alt="Image User">
 							</div>
-							<div class="media-body">
+							 <div class="media-body">
 								<h4 class="media-heading">Jessica Brown</h4>
 								<ul class="list-inline rating">
 									<li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -144,7 +150,8 @@
 								totam rem ape riam,</p>
 							</div>
 						</div>
-					</div>
+					</div> -->
+				</div>
 					<div class="detailsInfoBox">
 						<h3>Write A Review </h3>
 						<div class="listingReview">
@@ -176,28 +183,30 @@
 				</div> -->
 
         <div class="listingReview">
-          <ul class="list-inline rating">
+          <!-- <ul class="list-inline rating">
             ratings go here
           </ul>
           <span>( 5 Reviews )</span>
           <ul class="list-inline captionItem">
             <li><i class="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
-          </ul>
+          </ul> -->
 
-          <%= link_to "add facility", new_site_space_path(@site), class:"btn btn-primary" %>
+          <!-- <%= link_to "add facility", new_site_space_path(@site), class:"btn btn-primary" %> -->
 
           <div class="listSidebar">
-              <div class="logo">
+						<h3>About <%= @site.name %> </h3>
+						<p><%= @site.description %></p>
+              <!-- <div class="logo">
                 <%= image_tag @site.image_url, alt:"Image category", class:"img-responsive img-rounded" %>
-              </div>
-              <br>
+              </div> -->
+              <!-- <br> -->
 
 					<h3>Location</h3>
 					<div class="contactInfo">
 						<ul class="list-unstyled list-address">
 							<li>
 								<i class="fa fa-map-marker" aria-hidden="true"></i>
-								<%= @site.location %>r <br> <%= @site.location %>
+								<%= @site.location %>r <br> <%= @site.city %>, <%= @site.country %>.
 							</li>
 							<li>
 								<i class="fa fa-phone" aria-hidden="true"></i>
@@ -216,9 +225,7 @@
 				</div>
         </div>
 
-
-
-				<div class="listSidebar">
+				<!-- <div class="listSidebar">
 
 					<h3>Opening Hours</h3>
 					<ul class="list-unstyled sidebarList">
@@ -251,7 +258,7 @@
 							<span class="pull-right"><a href="#">Closed</a></span>
 						</li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
